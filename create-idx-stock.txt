@@ -1,0 +1,19 @@
+FT.CREATE idx:stock
+  ON JSON
+    PREFIX 1 "stock:"
+  SCHEMA
+    $.sku AS sku TEXT SORTABLE
+    $.franchise AS fc TEXT SORTABLE
+    $.description AS ds TEXT SORTABLE
+    $.businessunit AS bu TAG
+    $.curve AS cv TAG
+    $.categorycode AS ct TEXT NOSTEM SORTABLE
+    
+    $.category AS category TEXT NOSTEM SORTABLE //Apenas ordenacao Ex: Desodorante
+    $.products[*].stockactual As stockActual NUMERIC SORTABLE    //Apenas ordernação
+    $.products[*].stocksynctransit As stockTransit NUMERIC SORTABLE //Apenas ordernação
+    $.products[*].stocksyncpending As stockPending NUMERIC SORTABLE //Apenas ordernação
+    $.products[*].safetystockquantity As safetyStock NUMERIC SORTABLE //Apenas ordernação
+    $.products[*].actualConverge As actualCoverage NUMERIC SORTABLE //Apenas ordernação
+    $.products[*].actualTransitConverge As actualTransitCoverage NUMERIC SORTABLE //Apenas ordernação
+    $.products[*].actualTransitPendingConverge As actualTransitPendingCoverage NUMERIC SORTABLE //Apenas ordernação

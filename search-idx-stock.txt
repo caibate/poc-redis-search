@@ -1,0 +1,11 @@
+//ler todos
+JSON.GET franchise:111 $
+//ler json formatado
+JSON.GET franchise:111 INDENT "\t" NEWLINE "\n" SPACE " " $
+
+//ler atributo de um json
+JSON.GET  franchise:111 $.products.*
+//ler todos sku
+JSON.GET  franchise:222 $.products.*.sku
+//ler campos indexados
+FT.SEARCH idx:franchise  "BOT"
